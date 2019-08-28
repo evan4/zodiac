@@ -1,0 +1,61 @@
+[{
+        "name": "aries",
+        "date_start": "21-03",
+        "date_end": "20-04"
+    },
+    {
+        "name": "taurus",
+        "date_start": "21-04",
+        "date_end": "21-05"
+    },
+    {
+        "name": "gemini",
+        "date_start": "22-05",
+        "date_end": "21-06"
+    },
+    {
+        "name": "cancer",
+        "date_start": "22-06",
+        "date_end": "22-07"
+    },
+    {
+        "name": "leo",
+        "date_start": "23-07",
+        "date_end": "21-08"
+    },
+    {
+        "name": "virgo",
+        "date_start": "22-08",
+        "date_end": "23-09"
+    },
+    {
+        "name": "libra",
+        "date_start": "24-09",
+        "date_end": "23-10"
+    },
+    {
+        "name": "scorpio",
+        "date_start": "24-10",
+        "date_end": "22-11"
+    },
+    {
+        "name": "sagittarius",
+        "date_start": "23-11",
+        "date_end": "22-12"
+    },
+    {
+        "name": "capricorn",
+        "date_start": "23-12",
+        "date_end": "20-01"
+    },
+    {
+        "name": "aquarius",
+        "date_start": "21-01",
+        "date_end": "19-02"
+    },
+    {
+        "name": "pisces",
+        "date_start": "20-02",
+        "date_end": "20-03"
+    }
+]
