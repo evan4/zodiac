@@ -2,59 +2,83 @@ import data from './data.json';
 
 export default class Zodiac {
 
-    constructor(){
-        this.signs = data;
-    }
+  constructor() {
 
-    getSign(birthday){
-        if(!this.isDate(birthday)) return false;
+    this.signs = data;
 
-        const date = birthday.split("-");
-        const birthdayMonth = Number(date[1]);
-        const birthdayDay = Number(date[2]);
+  }
 
-       const sign = this.signs.find( (item, index, arr) => {
-            
-            const dateStart = item.date_start.split("-");
-            const dateStartMonth = Number(dateStart[1]);
-            const dateStartDay = Number(dateStart[0]);
+  getSign( birthday ) {
 
-            const dateEnd = item.date_end.split("-");
-            const dateEndMonth = Number(dateEnd[1]);
-            const dateEndDay = Number(dateEnd[0]);
+    if ( !this.isDate( birthday ) ) return false;
 
-            if(birthdayMonth === 1){
-                
-            }else{
-                
-                if(dateStartMonth ===  birthdayMonth){
+    const date = birthday.split( '-' );
+    const birthdayMonth = Number( date[1] );
+    const birthdayDay = Number( date[2] );
+    let sign;
 
-                    if(birthdayDay >= dateStartDay){
-                        return item;
-                    }else{
-                        let i = index - 1;
-                        return arr[i];
-                    }
+    this.signs.forEach( (
+      item, index, arr,
+    ) => {
 
-                }else if(dateEndMonth === birthdayMonth){
+      const dateStart = item.date_start.split( '-' );
+      const dateStartMonth = Number( dateStart[1] );
+      const dateStartDay = Number( dateStart[0] );
 
-                    if(birthdayDay <= dateEndDay){
-                        return item;
-                    }else{
-                        let i = index + 1;
-                        return arr[i];
-                    }
+      const dateEnd = item.date_end.split( '-' );
+      const dateEndMonth = Number( dateEnd[1] );
+      const dateEndDay = Number( dateEnd[0] );
 
-                }
+      if ( birthdayMonth === 12 ) {
 
-            }
-            
-        });
+        if ( birthdayDay <= dateStartDay ) {
 
-        return sign;
-    }
+          sign = arr[11];
 
-    isDate(date){
-        return (new Date(date) !== "Invalid Date" && !isNaN(new Date(date)) ) ? true : false;
-    }
+        } else {
+
+          sign = item;
+
+        }
+
+      } else if ( dateStartMonth === birthdayMonth ) {
+
+        if ( birthdayDay >= dateStartDay ) {
+
+          sign = item;
+
+        } else {
+
+          const i = index - 1;
+          sign = arr[i];
+
+        }
+
+      } else if ( dateEndMonth === birthdayMonth ) {
+
+        if ( birthdayDay <= dateEndDay ) {
+
+          sign = item;
+
+        } else {
+
+          const i = index + 1;
+          sign = arr[i];
+
+        }
+
+      }
+
+    } );
+
+    return sign;
+
+  }
+
+  isDate( date ) {
+
+    return !!( ( new Date( date ) !== 'Invalid Date' && !isNaN( new Date( date ) ) ) );
+
+  }
+
 }
